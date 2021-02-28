@@ -4,7 +4,7 @@ import logo from './assets/ear1-logo.svg';
 import styled,{css} from 'styled-components';
 import { faInstagram, faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFunnelDollar,faEnvelopeOpenText} from '@fortawesome/free-solid-svg-icons';
+import { faFunnelDollar,faEnvelopeOpenText,faChevronLeft, faMicrophone} from '@fortawesome/free-solid-svg-icons';
 
 const Social = styled.a`
     ${props => props.twitter && css`
@@ -150,7 +150,24 @@ class App extends React.Component {
             Don't be part of the noise in the dms. Get ahead of the game by paying a small fee
             </p>
           </div>
-          
+          <aside>
+            <div className="container">
+              <header className="profile">
+                <FontAwesomeIcon icon={faChevronLeft}/>
+                 <p className="user">Chris Ekpengyong</p>
+              </header>
+              <span className="right">
+                Hey Boss, I am Charles an upcoming producer and 
+                I make beats which I'd like you to hear
+              </span>
+              <span className="left">Hey, Nice to meet you</span>
+              <span className="left">I'm not looking to hire a producer</span>
+              <span className="textBox">
+                <input value="Sorry, Another time" readOnly/>
+                <FontAwesomeIcon icon={faMicrophone} className="input-icon"/>
+              </span>
+            </div>
+          </aside>
         </section>
         <section id="influencer">
           <div className="text-content">
@@ -172,6 +189,18 @@ class App extends React.Component {
            </div>
         </section>
         <section id="influencer-cont">
+          <aside aria-hidden="true">
+            <div className="container">
+              <div className="inner-container">
+                <p className="user">
+                  Femi Adekunle<span> has paid and requested
+                  for you</span>
+                </p>
+                <span className="left">Decline</span>
+                <span className="right">Accept</span>
+              </div>
+            </div>
+          </aside>
           <div className="text-content">
             <div className="intro-container">
               <span className="pill">influencer</span>
@@ -187,7 +216,6 @@ class App extends React.Component {
               serious people and make genuine business and personal connections.
             </p>
           </div>
-          
         </section>
         <section id="features">
           <div className="text-content">

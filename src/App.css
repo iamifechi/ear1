@@ -19,8 +19,8 @@
   #influencer, #influencer-cont,
   #features, #call-to-action {
     height: 80vh;
-    min-height: 600px;
-    max-height: 800px;
+    min-height: 400px;
+    max-height: 600px;
     width: 100%;
     padding: 0%;
     overflow: hidden;
@@ -502,6 +502,8 @@ div.store-btns a:not(:hover) {
 #about::after, #about::before {
   content: "";
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
   height: 100%;
   width: 100%;
@@ -509,17 +511,11 @@ div.store-btns a:not(:hover) {
 }
 
 #about::after {
-  top: 0;
-  left: 0;
-  z-index: -1;
   background: url(./assets/whitenoise.svg);
   opacity: 1;
 }
 
 #about::before {
-  top: 0%;
-  left: 0%;
-  z-index: -1;
   color: black;
   transform: rotate(13deg);
   background: url(./assets/logo2.svg) 100% 28%/32% no-repeat;
@@ -632,6 +628,10 @@ div.store-btns a:not(:hover) {
   font-size: 16px;
 }
 
+#fans {
+  height: 400px;
+}
+
 #fans .pill {
   background: #ffbb62;
 }
@@ -642,6 +642,15 @@ div.store-btns a:not(:hover) {
 
 #fans::after {
   background: url(./assets/whitenoise.svg);
+}
+
+aside {
+  width: 40%;
+  height: 100%;
+  padding: 10% 5%;
+  background: white;
+  margin: 0;
+  display: none;
 }
 
 #influencer {
@@ -665,6 +674,97 @@ div.store-btns a:not(:hover) {
 }
 
 @media screen and (min-width: 762px) {
+  #fans .container .user, #influencer-cont .inner-container .user {
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 70px;
+  }
+  aside {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0% 5%;
+  }
+  aside .container {
+    width: 350px;
+    height: 102%;
+  }
+  #fans {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 450px;
+  }
+  #fans .text-content {
+    width: 35%;
+    padding: 12% 10%;
+  }
+  #fans aside {
+    background: #dbdbdb;
+  }
+  #fans aside .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  #fans .container .profile, #fans .container .textBox {
+    width: 90%;
+    height: 50px;
+    padding: 2% 5%;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  #fans .container .profile {
+    margin-top: -10%;
+    padding-top: 5%;
+  }
+  #fans .container .textBox {
+    margin-bottom: -10%;
+  }
+  #fans .container .textBox .input-icon {
+    opacity: 0.5;
+    margin-left: -5%;
+  }
+  #fans .container .textBox input {
+    width: 85%;
+    height: 10px;
+    background: rgba(219, 219, 219, 0.185);
+    border-radius: 5px;
+    border: 1px solid transparent;
+    outline: none;
+    padding: 10px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  #fans .container .left, #fans .container .right {
+    position: relative;
+    max-width: 60%;
+    font-size: 12px;
+    background: white;
+    padding: 4%;
+    font-weight: 500;
+    border-radius: 12px;
+  }
+  #fans .container .left {
+    align-self: flex-start;
+    border-bottom-left-radius: 0px;
+  }
+  #fans .container .right {
+    align-self: flex-end;
+    border-bottom-right-radius: 0px;
+  }
+  #fans .container .user {
+    color: black;
+  }
   #influencer {
     display: flex;
     flex-direction: row-reverse;
@@ -711,6 +811,17 @@ div.store-btns a:not(:hover) {
   }
 }
 
+.user::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -25%;
+  height: 50px;
+  width: 50px;
+  background: black;
+  border-radius: 50%;
+}
+
 #influencer-cont .pill {
   background: #ff8c62;
 }
@@ -730,7 +841,7 @@ div.store-btns a:not(:hover) {
 @media screen and (min-width: 762px) {
   #influencer-cont {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
   }
@@ -743,6 +854,63 @@ div.store-btns a:not(:hover) {
   }
   #influencer-cont div.text-content p {
     width: 295px;
+  }
+  #influencer-cont aside {
+    background: #272727;
+    width: 40%;
+    padding: 0% 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #influencer-cont .container {
+    height: 100%;
+    margin-top: -50%;
+    border: 10px solid #2e2e2e;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  #influencer-cont .inner-container {
+    height: 35%;
+    width: 350px;
+    padding: 10% 5%;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #363636;
+  }
+  #influencer-cont .inner-container .user {
+    width: 80%;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  #influencer-cont .inner-container .user::before {
+    top: -10px;
+    left: -24%;
+  }
+  #influencer-cont .inner-container .user span {
+    font-weight: 300;
+    opacity: 0.6;
+  }
+  #influencer-cont .inner-container .left, #influencer-cont .inner-container .right {
+    padding: 10px 15%;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+  }
+  #influencer-cont .inner-container .left {
+    background: #e34d4d;
+  }
+  #influencer-cont .inner-container .right {
+    background: #029c56;
   }
 }
 

@@ -30,8 +30,8 @@ $noise:url(./assets/whitenoise.svg);//top left / 160% repeat;
 
     @media screen and (min-width:762px){
         height:80vh;
-        min-height:600px;
-        max-height:800px;
+        min-height:400px;
+        max-height:600px;
         width:100%;
         padding:0%;
         overflow:hidden;
@@ -74,6 +74,7 @@ $noise:url(./assets/whitenoise.svg);//top left / 160% repeat;
     background: $green;
     opacity:1;
 }
+
 
 
 body{
@@ -514,22 +515,19 @@ nav#topnav{
 #about::after,#about::before{
     content:"";
     position:absolute;
+    top:0;
+    left:0;
     z-index:-1;
     height:100%;
     width:100%;
     opacity:1;
+    
 }
-#about::after{
-    top:0;
-    left:0;
-    z-index:-1;
+#about::after{ 
     background: $noise;
     opacity:1;
 }
 #about::before{
-    top:0%;
-    left:0%;
-    z-index: -1;
     color:black;
     transform: rotate(13deg);
     background:url(./assets/logo2.svg) 100% 28% / 32% no-repeat;
@@ -634,6 +632,7 @@ nav#topnav{
     font-size:16px;
 }
 #fans{
+    height:400px;
     .pill{
         background: $orange1;
     }
@@ -645,6 +644,15 @@ nav#topnav{
 #fans::after{
     @extend %grain-layer;
     background: $noise;
+}
+
+aside{
+    width:40%;
+    height:100%;
+    padding:10% 5%;
+    background:white;
+    margin:0;
+    display:none;
 }
 #influencer{
     padding: 50px 10% 0px;
@@ -666,6 +674,99 @@ nav#topnav{
 }
 
 @media screen and (min-width:762px){
+    %user{
+        position:relative;
+        font-size:12px;
+        font-weight:bold;
+        margin-left:70px;
+    }
+    aside{
+        @include flex(row,center,center);
+        margin:0;
+        padding:0% 5%;
+
+        .container{
+            width:350px;
+            height:102%;
+        }
+    }
+
+    #fans{
+        @include flex(row,space-between,center);
+        height:450px;
+
+        .text-content{
+            width:35%;
+            padding:12% 10%;
+            
+        }
+        aside{
+            background:rgb(219, 219, 219);
+            .container{
+                @include flex(column,space-evenly,center)
+            }
+        }
+
+        .container{
+
+            .profile,.textBox{
+                width:90%;
+                height:50px;
+                padding:2% 5%;
+                background:white;
+                @include flex(row,flex-start,center);
+               
+            }
+
+            .profile{
+                margin-top:-10%;
+                padding-top:5%;
+            }
+            .textBox{
+                margin-bottom:-10%;
+                .input-icon{
+                    opacity:0.5;
+                    margin-left:-5%;
+                }
+            }
+            .textBox input{
+                width: 85%;
+                height:10px;
+                background:rgba(219, 219, 219, 0.185);
+                border-radius:5px;
+                border:1px solid transparent;
+                outline:none;
+                padding:10px;
+                font-family:$dm;
+                font-size:12px;
+                font-weight:500;
+            }
+
+            .left,.right{
+                position:relative;
+                max-width:60%;
+                font-size:12px;
+                background:white;
+                padding:4%;
+                font-weight:500;
+                border-radius:12px;
+            }
+            .left{
+                align-self:flex-start;
+                border-bottom-left-radius:0px;
+            }
+            .right{
+                align-self:flex-end;
+                border-bottom-right-radius: 0px;
+            }
+            .user{
+                @extend %user;
+                color:black;
+            }
+           
+        }
+    }
+
     #influencer{
         @include flex(row-reverse,space-between,center);
         
@@ -709,6 +810,24 @@ nav#topnav{
         }
     }
 }
+    // .user{
+    //     position:relative;
+    //     font-size:12px;
+    //     font-weight:bold;
+    //     margin-left:70px;
+    //     color:black;
+    // }
+    
+    .user::before{
+        content:'';
+        position:absolute;
+        top:-20px;
+        left:-25%;
+        height:50px;
+        width:50px;
+        background:black;
+        border-radius:50%;
+    }
 
 
 #influencer-cont{
@@ -730,7 +849,7 @@ nav#topnav{
 }
 @media screen and (min-width:762px){
     #influencer-cont{
-        @include flex(row-reverse,flex-start,center);
+        @include flex(row,flex-start,center);
         div.text-content{
             width:35%;
             padding:12% 10% 12% 10%;
@@ -743,7 +862,60 @@ nav#topnav{
             }
             
         }
-        
+        aside{
+            background:rgb(39,39,39);
+           // background:white;
+            width:40%;
+            padding:0% 5%;
+            @include flex(row,center,center);
+        }
+
+        .container{
+            height:100%;
+            margin-top:-50%;
+            border:10px solid rgb(46,46,46);
+            border-radius:35px;
+            @include flex(row,center,flex-end);
+        }
+        .inner-container{
+            height:35%;
+            width:350px;
+            padding:10% 5%;
+            border-radius:20px;
+            color:white;
+            @include flex(row,space-evenly,center);
+            flex-wrap:wrap;
+            background:rgb(54,54,54);
+            .user{
+                @extend %user;
+                width:80%;
+                font-size:13px;
+               // margin-left:10px;
+               font-weight:500;
+                
+            }
+            .user::before{
+                top:-10px;
+                left:-24%;
+            }
+            .user span{
+               font-weight:300; 
+               opacity:0.6;
+            }
+            
+            .left,.right{
+                padding:10px 15%;
+                border-radius:5px;
+                font-size:14px;
+                text-align:center;
+            }
+            .left{
+                background:#e34d4d;
+            }
+            .right{
+                background:#029c56;
+            }
+        }
     }
 }
 
