@@ -73,6 +73,7 @@ nav#topnav #brand-logo {
   position: relative;
   width: 82px;
   padding: 10px;
+  margin-left: 5%;
 }
 
 nav#topnav #brand-logo img {
@@ -83,6 +84,14 @@ nav#topnav #brand-logo img {
 nav#topnav #nav {
   list-style: none;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  top: -16px;
+  right: 0%;
+  width: 60%;
+  height: 5em;
 }
 
 nav#topnav #nav li {
@@ -95,6 +104,7 @@ nav#topnav #nav a {
   width: fit-content;
   text-decoration: none;
   font: inherit;
+  font-size: 14px;
 }
 
 nav#topnav #nav a:hover {
@@ -104,10 +114,11 @@ nav#topnav #nav a:hover {
 }
 
 nav#topnav #toggle-btn {
-  position: fixed;
+  position: absolute;
   display: block;
   top: 2vh;
-  left: 84vw;
+  right: 5%;
+  left: 80%;
   width: 40px;
   height: fit-content;
   padding: 10px;
@@ -209,6 +220,10 @@ nav#topnav #nav.toggle li:first-child {
   margin-top: 5em;
 }
 
+nav#topnav #nav.toggle #toggle-btn {
+  left: 84%;
+}
+
 nav#topnav #nav.toggle #toggle-btn .bars {
   background: black;
 }
@@ -224,8 +239,8 @@ nav#topnav #nav.toggle #toggle-btn .bars {
     justify-content: space-between;
     align-items: center;
   }
-  nav#topnav #nav.toggle {
-    position: relative;
+  nav#topnav #nav {
+    right: 5%;
   }
   nav#topnav #nav li {
     display: flex;
@@ -542,15 +557,19 @@ div.store-btns a:not(:hover) {
 }
 
 #connect {
-  padding: 10px 10% 50px;
+  padding: 12% 10%;
 }
 
-#connect div.celeb-img-container {
-  width: 75%;
-  max-width: 240px;
-  height: 250px;
-  margin: 60px auto;
-  background: black;
+#connect aside.celeb-img-container {
+  width: 250px;
+  width: 80%;
+  height: 280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
 }
 
 #connect h2 {
@@ -570,12 +589,10 @@ div.store-btns a:not(:hover) {
     padding: 0% 5%;
     width: 90%;
   }
-  #connect div.celeb-img-container {
-    width: 40%;
-    padding: 0px 5%;
-    max-width: 240px;
-    height: 280px;
-    background: black;
+  #connect aside.celeb-img-container {
+    max-width: 250px;
+    height: 260px;
+    position: relative;
   }
   #connect div.text-content {
     width: 40%;
@@ -602,38 +619,8 @@ div.store-btns a:not(:hover) {
   align-items: center;
 }
 
-.pill, .icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.pill {
-  width: fit-content;
-  padding: 4px 24px;
-  border-radius: 15px;
-  font-weight: 500;
-  font-size: 0.7em;
-  letter-spacing: -0.03em;
-  color: black;
-}
-
-.icon {
-  border: 2px solid #ffbb62;
-  color: white;
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  font-size: 16px;
-}
-
 #fans {
   height: 400px;
-}
-
-#fans .pill {
-  background: #ffbb62;
 }
 
 #fans::before {
@@ -658,6 +645,7 @@ aside {
 }
 
 #influencer .pill {
+  display: none;
   background: #ff8c62;
 }
 
@@ -697,11 +685,10 @@ aside {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 450px;
   }
   #fans .text-content {
-    width: 35%;
-    padding: 12% 10%;
+    width: 38%;
+    padding: 12% 6%;
   }
   #fans aside {
     background: #dbdbdb;
@@ -772,8 +759,16 @@ aside {
     align-items: center;
   }
   #influencer div.text-content {
-    width: 40%;
-    padding: 12% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 45%;
+    padding: 12% 5% 12% 0%;
+    margin: 0;
+  }
+  #influencer .pill {
+    display: flex;
   }
   #influencer .illustration-container {
     width: 50%;
@@ -782,6 +777,8 @@ aside {
     overflow: hidden;
     position: relative;
     display: flex;
+    align-items: flex-start;
+    margin-left: -5%;
   }
   #influencer .mobile-illustration {
     margin: 0px auto;
@@ -789,25 +786,7 @@ aside {
     max-width: 400px;
     height: 100%;
     max-height: 500px;
-    background: url(./assets/settlements.svg) bottom right/100% no-repeat;
-  }
-  #influencer .content-box {
-    width: 100%;
-    padding: 5% 0% 0%;
-    align-self: flex-start;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-  #influencer .content-box h2, #influencer .content-box p {
-    color: black;
-    width: 100%;
-    max-width: 330px;
-    min-width: 250px;
-  }
-  #influencer .content-box p {
-    width: 295px;
+    background: url(./assets/settlements.svg) bottom left/100% no-repeat;
   }
 }
 
@@ -820,14 +799,6 @@ aside {
   width: 50px;
   background: black;
   border-radius: 50%;
-}
-
-#influencer-cont .pill {
-  background: #ff8c62;
-}
-
-#influencer-cont .icon {
-  border-color: #ff8c62;
 }
 
 #influencer-cont::before {
@@ -917,10 +888,7 @@ aside {
 @media screen and (min-width: 762px) {
   #fans, #influencer, #influencer-cont {
     padding: 0%;
-  }
-  #fans div.text-content, #influencer div.text-content, #influencer-cont div.text-content {
-    width: 32%;
-    padding: 12% 8%;
+    max-height: 450px;
   }
   #fans h2, #influencer h2, #influencer-cont h2 {
     width: 100%;
@@ -1039,6 +1007,7 @@ aside {
   align-items: center;
   padding: 5% 5% 10%;
   width: 90%;
+  overflow: visible;
 }
 
 #call-to-action .illustration-container {
@@ -1051,7 +1020,7 @@ aside {
 #call-to-action .illustration-container .mobile-illustration {
   width: 450px;
   height: 400px;
-  margin-left: -30px;
+  margin-left: -32px;
   background: url(./assets/settlements.svg) bottom left/90% no-repeat;
 }
 
@@ -1075,6 +1044,10 @@ aside {
 
 #call-to-action div.container .store-btns {
   margin-top: 50px;
+}
+
+#call-to-action div.container .illustration-container {
+  display: none;
 }
 
 #call-to-action .container::before {
@@ -1101,6 +1074,9 @@ aside {
     padding: 0% 5%;
     position: relative;
     overflow: visible;
+  }
+  #call-to-action .illustration-container {
+    display: none;
   }
   #call-to-action div.container {
     width: 90%;
@@ -1288,7 +1264,7 @@ aside {
 
 #footer .socials ul li a:hover {
   transform: scale(1.2);
-  color: #581845;
+  color: #029F58;
   cursor: pointer;
   font-weight: bold;
 }
@@ -1329,7 +1305,7 @@ aside {
 
 #footer .footer-nav li a:hover {
   transform: scale(2);
-  color: #581845;
+  color: #029F58;
   cursor: pointer;
   font-weight: bold;
 }

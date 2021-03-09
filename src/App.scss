@@ -100,6 +100,7 @@ nav#topnav{
         position:relative;
         width:82px;
         padding:10px;
+        margin-left:5%;
         img{
             width:100%;
             filter:saturate(0) brightness(1.5);
@@ -108,7 +109,12 @@ nav#topnav{
 
     #nav{
         list-style: none;
-        display:flex;
+        @include flex(row,flex-end,center);
+        position:absolute;
+        top:-16px;
+        right:0%;
+        width:60%;
+        height:5em;
 
         li{
             display:none;
@@ -120,6 +126,7 @@ nav#topnav{
             width:fit-content;
             text-decoration:none;
             font:inherit;
+            font-size:14px;
         }
         a:hover{
             font-weight:500;
@@ -129,10 +136,11 @@ nav#topnav{
     }
 
     #toggle-btn{
-        position:fixed;
+        position:absolute;
         display:block;
         top:2vh;
-        left:84vw;
+        right:5%;
+        left:80%;   
         width:40px;
         height:fit-content;
         padding:10px;
@@ -231,6 +239,9 @@ nav#topnav{
             margin-top:5em;
         }
 
+        #toggle-btn{
+            left:84%;
+        }
         #toggle-btn .bars{
             background:black;
         }
@@ -248,8 +259,8 @@ nav#topnav{
         background:transparent;
         @include flex(row,space-between,center);
        
-        #nav.toggle{
-            position:relative;
+        #nav{
+            right:5%;
         }
         #nav li{
             @include flex(row,center,center);
@@ -554,14 +565,15 @@ nav#topnav{
 }
 
 #connect{
-    padding:10px 10% 50px;
+    padding:12% 10%;
 
-    div.celeb-img-container{
-        width:75%;
-        max-width:240px;
-        height:250px;
-        margin:60px auto;
-        background:black;
+    aside.celeb-img-container{
+        width:250px;
+        width:80%;
+        height:280px;
+        @include flex(row,center,center);
+        position:relative;
+        text-align:center;
     }
     h2{
         color:black;
@@ -577,12 +589,15 @@ nav#topnav{
         width:90%;
        // height:400px;
     
-        div.celeb-img-container{
-            width:40%;
-            padding: 0px 5%;
-            max-width:240px;
-            height:280px;
-            background:black;
+        aside.celeb-img-container{
+            // width:40%;
+            // padding: 0px 5%;
+            // max-width:240px;
+            // height:280px;
+
+            max-width:250px;
+            height:260px;
+            position:relative;
         }
         div.text-content{
            width:40%;
@@ -611,31 +626,9 @@ nav#topnav{
     padding:5% 0;
     @include flex(row,space-between,center)
 }
-.pill,.icon{
-    @include flex(row,center,center);
-}
-.pill{
-    width:fit-content;
-    padding:4px 24px;
-    border-radius:15px;
-    font-weight:500;
-    font-size:0.7em;
-    letter-spacing: -0.03em;
-    color:black;
-}
-.icon{
-    border:2px solid $orange1;
-    color:white;
-    height:45px;
-    width:45px;
-    border-radius:50%;
-    font-size:16px;
-}
+
 #fans{
     height:400px;
-    .pill{
-        background: $orange1;
-    }
 }
 #fans::before{
     @extend %bg-layer;
@@ -657,6 +650,7 @@ aside{
 #influencer{
     padding: 50px 10% 0px;
     .pill{
+        display:none;
         background:$orange2;
     }
     .illustration-container{
@@ -693,11 +687,11 @@ aside{
 
     #fans{
         @include flex(row,space-between,center);
-        height:450px;
+        // height:450px;
 
         .text-content{
-            width:35%;
-            padding:12% 10%;
+            width:38%;
+            padding:12% 6%;
             
         }
         aside{
@@ -768,13 +762,18 @@ aside{
     }
 
     #influencer{
+        
         @include flex(row-reverse,space-between,center);
         
         div.text-content{
-            width:40%;
-            padding:12% 5%;  
+            @include flex(column,flex-start,flex-start);
+            width:45%;
+            padding:12% 5% 12% 0%;  
+            margin:0;
         }
-        
+        .pill{
+            display:flex;
+        }
         .illustration-container{
             width:50%;
             padding:0%;
@@ -782,6 +781,8 @@ aside{
             overflow:hidden;
             position:relative;
             display:flex;
+            align-items:flex-start;
+            margin-left:-5%;
         }
         .mobile-illustration{
             margin:0px auto;
@@ -789,55 +790,25 @@ aside{
             max-width:400px;
             height:100%;
             max-height: 500px;
-            background: url(./assets/settlements.svg) bottom right / 100% no-repeat;
+            
+            background: url(./assets/settlements.svg) bottom left / 100% no-repeat;
             
         }
-       .content-box{
-           width:100%;
-           padding:5% 0% 0%;
-           align-self:flex-start;
-           @include flex(column,flex-start,flex-start);
-      
-            h2,p{
-                color:black;
-                width:100%;
-                max-width:330px;
-                min-width:250px;
-            }
-            p{
-                width:295px;
-            }
-        }
     }
 }
-    // .user{
-    //     position:relative;
-    //     font-size:12px;
-    //     font-weight:bold;
-    //     margin-left:70px;
-    //     color:black;
-    // }
     
-    .user::before{
-        content:'';
-        position:absolute;
-        top:-20px;
-        left:-25%;
-        height:50px;
-        width:50px;
-        background:black;
-        border-radius:50%;
-    }
-
-
-#influencer-cont{
-    .pill{
-        background:$orange2;
-    }
-    .icon{
-        border-color:$orange2;
-    }
+.user::before{
+    content:'';
+    position:absolute;
+    top:-20px;
+    left:-25%;
+    height:50px;
+    width:50px;
+    background:black;
+    border-radius:50%;
 }
+
+
 #influencer-cont::before{
     @extend %bg-layer;
     background: #202020;
@@ -864,7 +835,6 @@ aside{
         }
         aside{
             background:rgb(39,39,39);
-           // background:white;
             width:40%;
             padding:0% 5%;
             @include flex(row,center,center);
@@ -890,9 +860,7 @@ aside{
                 @extend %user;
                 width:80%;
                 font-size:13px;
-               // margin-left:10px;
-               font-weight:500;
-                
+                font-weight:500;
             }
             .user::before{
                 top:-10px;
@@ -922,11 +890,7 @@ aside{
 @media screen and (min-width:762px){
     #fans,#influencer,#influencer-cont{
         padding:0%;
-        div.text-content{
-            width:32%;
-            padding:12% 8%;
-        }
-
+        max-height:450px;
         h2{
             width:100%;
             max-width:330px;
@@ -1036,19 +1000,22 @@ aside{
     }
  }
 
+
 #call-to-action{
     @extend %container;
     @include flex(column,center,center);
     padding:5% 5% 10%;
     width:90%;
+    overflow:visible;
 
     .illustration-container{
+        
         @include flex(row,center,center);
 
         .mobile-illustration{
             width:450px;
             height:400px;
-            margin-left:-30px;
+            margin-left:-32px;
             background: url(./assets/settlements.svg) bottom left / 90% no-repeat;
         }
     }
@@ -1073,6 +1040,10 @@ aside{
 
         .store-btns{
             margin-top:50px;
+        }
+
+        .illustration-container{
+            display:none;
         }
     }
     .container::before{
@@ -1099,7 +1070,11 @@ aside{
         width:90%;
         padding:0% 5%;
         position:relative;
-        overflow:visible;         
+        overflow:visible;  
+        
+        .illustration-container{
+            display:none;
+        }
 
         div.container{
             width:90%;
@@ -1134,32 +1109,32 @@ aside{
                
             }
             .illustration-container{
-                @include flex(row,center,center);
-                width:40%;
-                height:100%;
+            @include flex(row,center,center);
+            width:40%;
+            height:100%;
 
-                    .mobile-illustration{
-                        content:"";
-                        position:relative;
-                        margin-bottom:-100px;
-                        left:15%;
-                        height:100%;
-                        width:260px;
-                        min-width:250px;
-                        max-width:260px;
-                        background:url(./assets/hand.png) bottom center / contain no-repeat;
-                }
-                .mobile-illustration::after{
-                    content:"";
-                    position:absolute;
-                    z-index:2;
-                    top: -54px;
-                    right:49px;
-                    height:100%;
-                    width:101px;
-                    background:url(./assets/splash.png) center / 100% no-repeat;
-                }
+            .mobile-illustration{
+                content:"";
+                position:relative;
+                margin-bottom:-100px;
+                left:15%;
+                height:100%;
+                width:260px;
+                min-width:250px;
+                max-width:260px;
+                background:url(./assets/hand.png) bottom center / contain no-repeat;
             }
+            .mobile-illustration::after{
+                content:"";
+                position:absolute;
+                z-index:2;
+                top: -54px;
+                right:49px;
+                height:100%;
+                width:101px;
+                background:url(./assets/splash.png) center / 100% no-repeat;
+            }
+        }
             
         } 
 
@@ -1274,7 +1249,7 @@ aside{
 
             a:hover{
                 transform:scale(1.2);
-                color:$dark-purple;
+                color:$green;
                 cursor:pointer;
                 font-weight:bold;
             }
@@ -1316,7 +1291,7 @@ aside{
             }
             a:hover{
                 transform:scale(2);
-                color:$dark-purple;
+                color:$green;
                 cursor:pointer;
                 font-weight:bold;
             }
