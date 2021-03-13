@@ -1,97 +1,94 @@
+import React, {useEffect} from 'react';
 import styled,{css} from 'styled-components';
-//import {useEffect,useState} from 'react';
-import {Pill, Icon} from '../components/index'
-import { _slide1, _slide2, _slide3, _slide4} from '../assets/index.js'
+import {Pill, Icon} from '../components/index';
+import { _slide1, _slide2, _slide3, _slide4} from '../assets/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeOpenText,faChevronLeft, faMicrophone} from '@fortawesome/free-solid-svg-icons';
 
-const Image = styled.span`
-  width:250px;
-  height:290px;
-  position:absolute;
-  top:0;
-  right:0;
-  left:0;
-  margin:auto;
-  background:white;
-  animation:rotate infinite;
-  animation-duration:4s;
-  outline:1px solid green;
 
-  @keyframes swipe{
-    from{
-      margin-right:auto;
-      opacity:1;
-    }
-    to{
-      margin-right:-120%;
-      opacity:0;
-    }
+const Img = styled.img`
+width:250px;
+height:300px;
+position:absolute;
+top:0;
+right:0;
+left:0;
+margin:auto;
+animation:index infinite;
+animation-duration:4s;
+
+
+@keyframes index{
+ 0%{
+   z-index:4;
+ }
+ 25%{
+  z-index:3;
+ }
+ 50%{
+   z-index:2; 
+ }
+ 75%{
+   z-index:1;
+ }
+ 100%{
+  z-index:0;
   }
+}
 
-  @keyframes rotate{
-   0%{
-     z-index:4;
-     animation: swipe 0.9s ease-in-out;
-   }
-   25%{
-    z-index:3;
-    opacity:1;
-    margin-right:auto;
-   }
-   50%{
-     z-index:2; 
-   }
-   75%{
-     z-index:1;
-   }
-   100%{
-    z-index:0;
-    }
-  }
+${props => props.slide && css`
+animation-delay:${props.slide}s;
+`}
 
-  ${props => props.slide && css`
-  animation-delay:${props.slide - 1}s;
-  `}
-  
-  ${props => props.slide===1 && css`
-  background:url(${_slide1}) center / cover no-repeat;
-  transform:rotate(2deg);
+${props => props.slide===1 && css`
+transform:rotate(2deg);
+background:url(${_slide1}) center / cover no-repeat;
+`}
 
-  `}
+${props => props.slide===2 && css`
+  transform:rotate(-2deg);
+  background:url(${_slide2}) center / cover no-repeat;
+`}
 
-  ${props => props.slide===2 && css`
-    background:url(${_slide2}) center / cover no-repeat;
-    transform:rotate(-3deg);
-  `}
+${props => props.slide===3 && css`
+ transform:rotate(4deg);
+ background:url(${_slide3}) center / cover no-repeat;
+`}
 
-   ${props => props.slide===3 && css`
-    background:url(${_slide3}) center / cover no-repeat;
-    transform:rotate(4deg);
-    `}
-
-  ${props => props.slide===4 && css`
-    background:url(${_slide4}) center / cover no-repeat;
-    transform:rotate(-1deg);
-  `}
-
+${props => props.slide===4 && css`
+  transform:rotate(-1deg);
+  background:url(${_slide4}) center / cover no-repeat;
+`}
 `
+const imageList = [_slide1, _slide2, _slide3, _slide4];
 
-function Fans(){
-    
-    
-    
+const renderImages =() =>{
+    return imageList.map((image,index)=>{
+       return <Img key={`image${index}`} 
+                    src={image} 
+                    alt={`celeb image ${index}`}
+                    className="slides" 
+                    slide={index}
+                />
+    })
+  }
+const Fans=()=>{
+ 
 
-    
+  useEffect(()=>{
+    imageList.forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  },[])
+ 
     return(
         <>
         <section id="connect">
           <aside className="celeb-img-container">
-           <Image className="slides" slide={1}  />
-           <Image className="slides" slide={2} />
-           <Image className="slides" slide={3} />
-           <Image className="slides" slide={4} />
+           {renderImages()}
          </aside>
+
           <div className="text-content">
             <div className="intro-container">
               <Pill primary className="pill">Fans</Pill>
@@ -121,7 +118,7 @@ function Fans(){
 
           <aside aria-hidden="true">
             <div className="container">
-              <header className="profile">
+              <header className="top box">
                 <FontAwesomeIcon icon={faChevronLeft}/>
                  <p className="user">Chris Ekpengyong</p>
               </header>
@@ -131,10 +128,12 @@ function Fans(){
               </span>
               <span className="left">Hey, Nice to meet you</span>
               <span className="left">I'm not looking to hire a producer</span>
-              <span className="textBox">
-                <input value="Sorry, Another time" readOnly/>
-                <FontAwesomeIcon icon={faMicrophone} className="input-icon"/>
-              </span>
+              <div className="bottom box" >
+                <div className="textBox">
+                  <span>Sorry, Another time</span>
+                  <FontAwesomeIcon icon={faMicrophone} className="mic-icon"/>
+                </div>
+              </div>
             </div>
           </aside>
         </section>

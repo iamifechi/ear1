@@ -19,7 +19,7 @@
   #influencer, #influencer-cont,
   #features, #call-to-action {
     height: 80vh;
-    min-height: 400px;
+    min-height: 500px;
     max-height: 600px;
     width: 100%;
     padding: 0%;
@@ -52,7 +52,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "DM Sans", sans-serif;
-  outline: 1px solid red;
 }
 
 nav#topnav {
@@ -118,7 +117,6 @@ nav#topnav #toggle-btn {
   display: block;
   top: 2vh;
   right: 5%;
-  left: 80%;
   width: 40px;
   height: fit-content;
   padding: 10px;
@@ -221,7 +219,7 @@ nav#topnav #nav.toggle li:first-child {
 }
 
 nav#topnav #nav.toggle #toggle-btn {
-  left: 84%;
+  right: 5%;
 }
 
 nav#topnav #nav.toggle #toggle-btn .bars {
@@ -306,6 +304,7 @@ nav#topnav #nav.toggle #toggle-btn .bars {
 
 #hero-section .mobile-illustration {
   position: relative;
+  background-position: bottom center;
 }
 
 div.store-btns {
@@ -406,17 +405,17 @@ div.store-btns a:not(:hover) {
     z-index: -1;
     height: 100%;
     width: 100%;
-    background: url(./assets/iphone.png) center/90% no-repeat;
   }
   #hero-section .mobile-illustration::before {
-    top: 50%;
-    right: 21vw;
+    top: 36%;
+    right: 15vw;
     transform: rotate(-24deg);
+    background: url(./assets/iphone.png) top center/90% no-repeat;
   }
   #hero-section .mobile-illustration::after {
-    top: 42%;
-    right: -22vw;
-    background: url(./assets/settlements.svg) center/90% no-repeat;
+    top: 32%;
+    right: -15vw;
+    background: url(./assets/settlements.svg) top center/90% no-repeat;
     transform: rotate(22deg);
   }
   #hero-section div.store-btns {
@@ -514,7 +513,8 @@ div.store-btns a:not(:hover) {
   background: rgba(194, 194, 194, 0.082);
 }
 
-#about::after, #about::before {
+#about::after, #about::before,
+#fans aside::before, #fans aside:after {
   content: "";
   position: absolute;
   top: 0;
@@ -525,7 +525,7 @@ div.store-btns a:not(:hover) {
   opacity: 1;
 }
 
-#about::after {
+#about::after, #fans aside::after {
   background: url(./assets/whitenoise.svg);
   opacity: 1;
 }
@@ -561,8 +561,7 @@ div.store-btns a:not(:hover) {
 }
 
 #connect aside.celeb-img-container {
-  width: 250px;
-  width: 80%;
+  width: 100%;
   height: 280px;
   display: flex;
   flex-direction: row;
@@ -590,9 +589,7 @@ div.store-btns a:not(:hover) {
     width: 90%;
   }
   #connect aside.celeb-img-container {
-    max-width: 250px;
-    height: 260px;
-    position: relative;
+    justify-content: flex-start;
   }
   #connect div.text-content {
     width: 40%;
@@ -635,7 +632,6 @@ aside {
   width: 40%;
   height: 100%;
   padding: 10% 5%;
-  background: white;
   margin: 0;
   display: none;
 }
@@ -651,6 +647,10 @@ aside {
 
 #influencer .illustration-container {
   display: none;
+}
+
+#fans, #influencer-cont {
+  box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.075);
 }
 
 #fans h2, #fans p, #influencer-cont h2, #influencer-cont p {
@@ -691,7 +691,7 @@ aside {
     padding: 12% 6%;
   }
   #fans aside {
-    background: #dbdbdb;
+    position: relative;
   }
   #fans aside .container {
     display: flex;
@@ -699,7 +699,28 @@ aside {
     justify-content: space-evenly;
     align-items: center;
   }
-  #fans .container .profile, #fans .container .textBox {
+  #fans aside::after, #fans aside::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+  #fans aside::before {
+    background: #e4e4e4;
+    z-index: -2;
+  }
+  #fans aside::after {
+    background: url(./assets/whitenoise.svg);
+  }
+  #fans .container {
+    /* The typing effect */
+    /* The typewriter cursor effect */
+  }
+  #fans .container .box {
     width: 90%;
     height: 50px;
     padding: 2% 5%;
@@ -709,28 +730,58 @@ aside {
     justify-content: flex-start;
     align-items: center;
   }
-  #fans .container .profile {
+  #fans .container .top.box {
     margin-top: -10%;
     padding-top: 5%;
   }
-  #fans .container .textBox {
+  #fans .container .bottom.box {
     margin-bottom: -10%;
   }
-  #fans .container .textBox .input-icon {
+  #fans .container .bottom.box .mic-icon {
     opacity: 0.5;
     margin-left: -5%;
   }
-  #fans .container .textBox input {
+  #fans .container .textBox {
     width: 85%;
     height: 10px;
     background: rgba(219, 219, 219, 0.185);
     border-radius: 5px;
     border: 1px solid transparent;
-    outline: none;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  #fans .container .textBox span {
     font-family: "DM Sans", sans-serif;
     font-size: 12px;
     font-weight: 500;
+    color: black;
+    max-width: 110px;
+    display: flex;
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    margin: 0 auto;
+    margin-left: 0;
+    animation: typing 3.5s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: black;
+    }
   }
   #fans .container .left, #fans .container .right {
     position: relative;
@@ -1011,6 +1062,7 @@ aside {
 }
 
 #call-to-action .illustration-container {
+  width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -1018,7 +1070,7 @@ aside {
 }
 
 #call-to-action .illustration-container .mobile-illustration {
-  width: 450px;
+  max-width: 450px;
   height: 400px;
   margin-left: -32px;
   background: url(./assets/settlements.svg) bottom left/90% no-repeat;
@@ -1121,7 +1173,7 @@ aside {
   #call-to-action div.container .illustration-container .mobile-illustration {
     content: "";
     position: relative;
-    margin-bottom: -100px;
+    margin-top: 130px;
     left: 15%;
     height: 100%;
     width: 260px;

@@ -1,9 +1,10 @@
+import React from 'react';
 import {Pill, Icon} from '../components/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFunnelDollar} from '@fortawesome/free-solid-svg-icons';
 
 
-function Influencer(props){
+const Influencer=(props)=>{
     return(
         <>
         <section id="influencer">

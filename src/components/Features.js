@@ -1,4 +1,6 @@
-function Features(props){
+import React from 'react';
+
+const Features=(props)=>{
     return(
         <>
          <section id="features">

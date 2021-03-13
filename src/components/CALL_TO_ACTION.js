@@ -10,13 +10,13 @@ function CALL_TO_ACTION(props){
               <span className="mobile-illustration"/>
             </div>
            
-             <div class="text-content">
+             <div className="text-content">
               <h1>
                 Get ahead of your game
               </h1>
               <p>Save time and effort. Ear1 is your best choice</p>
             
-              <div class="store-btns">
+              <div className="store-btns">
                 <a href="/" className="google-play">Get in on Google Play</a>
                 <a href="/" className="apple-store">download on the App Store</a>
               </div>

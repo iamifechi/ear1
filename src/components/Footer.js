@@ -13,7 +13,7 @@ function Footer(props){
                   </h2>
                   <input type="email" id="email" 
                   placeholder="Enter your email address" className="email-input"/>
-                  <button class="submit-btn">Submit</button>
+                  <button className="submit-btn">Submit</button>
                 </form>
 
                 <div className="socials">
@@ -39,7 +39,7 @@ function Footer(props){
                   </ul>
                 </div>
 
-                <nav class="footer-nav">
+                <nav className="footer-nav">
                   <ul>
                     <header>Links</header>
                     <li><a href="/">Home</a></li>

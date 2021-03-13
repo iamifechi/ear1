@@ -30,7 +30,7 @@ $noise:url(./assets/whitenoise.svg);//top left / 160% repeat;
 
     @media screen and (min-width:762px){
         height:80vh;
-        min-height:400px;
+        min-height:500px;
         max-height:600px;
         width:100%;
         padding:0%;
@@ -82,7 +82,7 @@ body{
     margin:0;
     padding:0;
     font-family:$dm;
-    outline:1px solid red;
+   // outline:1px solid red;
 }
 
 nav#topnav{
@@ -139,8 +139,8 @@ nav#topnav{
         position:absolute;
         display:block;
         top:2vh;
+        //left:80%;
         right:5%;
-        left:80%;   
         width:40px;
         height:fit-content;
         padding:10px;
@@ -240,7 +240,7 @@ nav#topnav{
         }
 
         #toggle-btn{
-            left:84%;
+            right:5%;
         }
         #toggle-btn .bars{
             background:black;
@@ -322,6 +322,7 @@ nav#topnav{
 
     .mobile-illustration{
         position:relative;
+        background-position:bottom center;
     }
 
 } 
@@ -418,18 +419,18 @@ nav#topnav{
             z-index:-1;
             height:100%;
             width:100%;
-            background: url(./assets/iphone.png)  center / 90% no-repeat;
-        }
+            }
 
         .mobile-illustration::before{
-            top:50%;
-            right:21vw;
-            transform:rotate(-24deg);
+            top:36%;
+            right:15vw;
+            transform:rotate(-24deg); 
+            background: url(./assets/iphone.png)  top center / 90% no-repeat;
         }
         .mobile-illustration::after{
-            top:42%;
-            right:-22vw;
-            background: url(./assets/settlements.svg)  center / 90% no-repeat;
+            top:32%;
+            right:-15vw;
+            background: url(./assets/settlements.svg)  top center / 90% no-repeat;
             transform:rotate(22deg);
         }
 
@@ -523,7 +524,9 @@ nav#topnav{
 }
 
 
-#about::after,#about::before{
+
+#about::after,#about::before,
+#fans aside::before,#fans aside:after{
     content:"";
     position:absolute;
     top:0;
@@ -534,7 +537,7 @@ nav#topnav{
     opacity:1;
     
 }
-#about::after{ 
+#about::after,#fans aside::after{ 
     background: $noise;
     opacity:1;
 }
@@ -568,8 +571,8 @@ nav#topnav{
     padding:12% 10%;
 
     aside.celeb-img-container{
-        width:250px;
-        width:80%;
+        //width:250px;
+        width:100%;
         height:280px;
         @include flex(row,center,center);
         position:relative;
@@ -587,17 +590,9 @@ nav#topnav{
         @include flex(row-reverse, space-evenly, center);
         padding:0% 5%;
         width:90%;
-       // height:400px;
-    
-        aside.celeb-img-container{
-            // width:40%;
-            // padding: 0px 5%;
-            // max-width:240px;
-            // height:280px;
 
-            max-width:250px;
-            height:260px;
-            position:relative;
+        aside.celeb-img-container{
+         justify-content:flex-start;
         }
         div.text-content{
            width:40%;
@@ -608,7 +603,6 @@ nav#topnav{
                 background:$orange1;
                 margin:4% 0;
             }
-           
            
         }
         h2{
@@ -629,6 +623,7 @@ nav#topnav{
 
 #fans{
     height:400px;
+   
 }
 #fans::before{
     @extend %bg-layer;
@@ -643,11 +638,11 @@ aside{
     width:40%;
     height:100%;
     padding:10% 5%;
-    background:white;
     margin:0;
     display:none;
 }
 #influencer{
+   
     padding: 50px 10% 0px;
     .pill{
         display:none;
@@ -659,6 +654,7 @@ aside{
    
 }
 #fans,#influencer-cont{
+    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.075);
     h2,p{
         color:white;
     }
@@ -687,7 +683,6 @@ aside{
 
     #fans{
         @include flex(row,space-between,center);
-        // height:450px;
 
         .text-content{
             width:38%;
@@ -695,15 +690,37 @@ aside{
             
         }
         aside{
-            background:rgb(219, 219, 219);
+            position:relative;
             .container{
                 @include flex(column,space-evenly,center)
             }
         }
+        aside::after,aside::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:-1;
+            height:100%;
+            width:100%;
+            opacity:1;
+        }
+
+        aside::before{
+            background: rgb(228, 228, 228);
+            z-index:-2;
+        }
+
+        aside::after{
+            background: $noise;
+        }
+
+
+
 
         .container{
 
-            .profile,.textBox{
+            .box{
                 width:90%;
                 height:50px;
                 padding:2% 5%;
@@ -712,29 +729,60 @@ aside{
                
             }
 
-            .profile{
+            .top.box{
                 margin-top:-10%;
                 padding-top:5%;
             }
-            .textBox{
+            .bottom.box {
                 margin-bottom:-10%;
-                .input-icon{
+                .mic-icon{
                     opacity:0.5;
                     margin-left:-5%;
                 }
             }
-            .textBox input{
+            .textBox{
                 width: 85%;
                 height:10px;
                 background:rgba(219, 219, 219, 0.185);
                 border-radius:5px;
                 border:1px solid transparent;
-                outline:none;
                 padding:10px;
-                font-family:$dm;
-                font-size:12px;
-                font-weight:500;
+                @include flex(row,space-evenly,center);
             }
+
+                ////
+
+        .textBox span {
+            font-family:$dm;
+            font-size:12px;
+            font-weight:500;
+            color:black;
+            max-width:110px;
+            display:flex;
+            overflow: hidden;
+            border-right: .15em solid black;
+            white-space: nowrap;
+            margin: 0 auto;
+            margin-left:0;
+            animation:
+              typing 3.5s steps(40, end) infinite,
+              blink-caret .75s step-end infinite;
+          
+            }
+          
+          
+          /* The typing effect */
+          @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+          }
+          
+          /* The typewriter cursor effect */
+          @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: black; }
+          }
+        ////
 
             .left,.right{
                 position:relative;
@@ -1009,11 +1057,11 @@ aside{
     overflow:visible;
 
     .illustration-container{
-        
+        width:70%;
         @include flex(row,center,center);
 
         .mobile-illustration{
-            width:450px;
+            max-width:450px;
             height:400px;
             margin-left:-32px;
             background: url(./assets/settlements.svg) bottom left / 90% no-repeat;
@@ -1116,7 +1164,7 @@ aside{
             .mobile-illustration{
                 content:"";
                 position:relative;
-                margin-bottom:-100px;
+                margin-top:130px;
                 left:15%;
                 height:100%;
                 width:260px;
