@@ -18,9 +18,8 @@
   #about, #connect, #fans,
   #influencer, #influencer-cont,
   #features, #call-to-action {
-    height: 80vh;
+    height: 100vh;
     min-height: 500px;
-    max-height: 600px;
     width: 100%;
     padding: 0%;
     overflow: hidden;
@@ -407,16 +406,38 @@ div.store-btns a:not(:hover) {
     width: 100%;
   }
   #hero-section .mobile-illustration::before {
-    top: 36%;
-    right: 15vw;
-    transform: rotate(-24deg);
+    top: 40%;
+    left: -16vw;
+    transform: rotate(-26deg);
     background: url(./assets/iphone.png) top center/90% no-repeat;
   }
   #hero-section .mobile-illustration::after {
-    top: 32%;
-    right: -15vw;
+    top: 31%;
+    right: -17vw;
     background: url(./assets/settlements.svg) top center/90% no-repeat;
-    transform: rotate(22deg);
+    transform: rotate(23deg);
+  }
+  @keyframes rotate-left {
+    from {
+      transform: rotate(-14deg);
+    }
+    to {
+      transform: rotate(-26deg);
+    }
+  }
+  @keyframes rotate-right {
+    from {
+      transform: rotate(11deg);
+    }
+    to {
+      transform: rotate(23deg);
+    }
+  }
+  #hero-section .animate.mobile-illustration::before {
+    animation: rotate-left 0.8s ease;
+  }
+  #hero-section .animate.mobile-illustration::after {
+    animation: rotate-right 0.8s ease;
   }
   #hero-section div.store-btns {
     max-width: 600px;
@@ -473,8 +494,7 @@ div.store-btns a:not(:hover) {
   #about, #connect, #fans,
   #influencer, #influencer-cont,
   #features {
-    height: 70vh;
-    max-height: 600px;
+    height: 100vh;
     min-height: 400px;
   }
   #about h2, #about h3, #connect h2, #connect h3, #fans h2, #fans h3,
@@ -483,7 +503,7 @@ div.store-btns a:not(:hover) {
   #features h2,
   #features h3 {
     line-height: 50px;
-    max-width: 300px;
+    max-width: 350px;
     text-align: left;
   }
   #about h2, #connect h2, #fans h2,
@@ -616,10 +636,6 @@ div.store-btns a:not(:hover) {
   align-items: center;
 }
 
-#fans {
-  height: 400px;
-}
-
 #fans::before {
   background: #029F58;
 }
@@ -662,11 +678,12 @@ aside {
 }
 
 @media screen and (min-width: 762px) {
-  #fans .container .user, #influencer-cont .inner-container .user {
+  #fans .container .user, #influencer-cont .container .inner-container .user {
     position: relative;
-    font-size: 12px;
+    font-size: 0.8em;
     font-weight: bold;
-    margin-left: 70px;
+    margin-left: 22%;
+    width: 78%;
   }
   aside {
     display: flex;
@@ -677,7 +694,8 @@ aside {
     padding: 0% 5%;
   }
   aside .container {
-    width: 350px;
+    width: 80%;
+    min-width: 350px;
     height: 102%;
   }
   #fans {
@@ -696,7 +714,7 @@ aside {
   #fans aside .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
   }
   #fans aside::after, #fans aside::before {
@@ -723,25 +741,22 @@ aside {
   #fans .container .box {
     width: 90%;
     height: 50px;
-    padding: 2% 5%;
+    padding: 3% 5%;
     background: white;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
   }
-  #fans .container .top.box {
-    margin-top: -10%;
+  #fans .container .box {
     padding-top: 5%;
   }
-  #fans .container .bottom.box {
-    margin-bottom: -10%;
-  }
-  #fans .container .bottom.box .mic-icon {
+  #fans .container .box .mic-icon {
     opacity: 0.5;
     margin-left: -5%;
   }
   #fans .container .textBox {
+    position: relative;
     width: 85%;
     height: 10px;
     background: rgba(219, 219, 219, 0.185);
@@ -750,29 +765,32 @@ aside {
     padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
   }
   #fans .container .textBox span {
     font-family: "DM Sans", sans-serif;
-    font-size: 12px;
+    font-size: 0.8em;
     font-weight: 500;
     color: black;
-    max-width: 110px;
-    display: flex;
+    width: 0;
     overflow: hidden;
     border-right: .15em solid black;
     white-space: nowrap;
-    margin: 0 auto;
-    margin-left: 0;
-    animation: typing 3.5s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+    margin: 0;
+    animation: blink-caret .75s step-end infinite;
+  }
+  #fans .container .textBox span.animate {
+    width: 120px;
+    max-width: 120px;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
   }
   @keyframes typing {
     from {
       width: 0;
     }
     to {
-      width: 100%;
+      width: 120px;
     }
   }
   @keyframes blink-caret {
@@ -783,14 +801,22 @@ aside {
       border-color: black;
     }
   }
+  #fans .container .chat-area {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
   #fans .container .left, #fans .container .right {
     position: relative;
     max-width: 60%;
-    font-size: 12px;
+    font-size: 0.8em;
     background: white;
     padding: 4%;
     font-weight: 500;
     border-radius: 12px;
+    margin: 5% 0;
   }
   #fans .container .left {
     align-self: flex-start;
@@ -804,9 +830,10 @@ aside {
     color: black;
   }
   #influencer {
+    padding: 0%;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
   #influencer div.text-content {
@@ -823,20 +850,22 @@ aside {
   }
   #influencer .illustration-container {
     width: 50%;
-    padding: 0%;
+    margin: 0;
     height: 100%;
     overflow: hidden;
     position: relative;
     display: flex;
-    align-items: flex-start;
-    margin-left: -5%;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
   }
   #influencer .mobile-illustration {
+    display: block;
     margin: 0px auto;
-    width: 100%;
-    max-width: 400px;
-    height: 100%;
-    max-height: 500px;
+    min-width: 465px;
+    max-width: 480px;
+    min-height: 500px;
+    margin-left: -50px;
     background: url(./assets/settlements.svg) bottom left/100% no-repeat;
   }
 }
@@ -896,7 +925,7 @@ aside {
     justify-content: center;
     align-items: flex-end;
   }
-  #influencer-cont .inner-container {
+  #influencer-cont .container .inner-container {
     height: 35%;
     width: 350px;
     padding: 10% 5%;
@@ -909,45 +938,44 @@ aside {
     flex-wrap: wrap;
     background: #363636;
   }
-  #influencer-cont .inner-container .user {
+  #influencer-cont .container .inner-container .user {
     width: 80%;
     font-size: 13px;
     font-weight: 500;
   }
-  #influencer-cont .inner-container .user::before {
+  #influencer-cont .container .inner-container .user::before {
     top: -10px;
     left: -24%;
   }
-  #influencer-cont .inner-container .user span {
+  #influencer-cont .container .inner-container .user span {
     font-weight: 300;
     opacity: 0.6;
   }
-  #influencer-cont .inner-container .left, #influencer-cont .inner-container .right {
+  #influencer-cont .container .inner-container .left, #influencer-cont .container .inner-container .right {
     padding: 10px 15%;
     border-radius: 5px;
     font-size: 14px;
     text-align: center;
   }
-  #influencer-cont .inner-container .left {
+  #influencer-cont .container .inner-container .left {
     background: #e34d4d;
   }
-  #influencer-cont .inner-container .right {
+  #influencer-cont .container .inner-container .right {
     background: #029c56;
   }
 }
 
 @media screen and (min-width: 762px) {
-  #fans, #influencer, #influencer-cont {
+  #fans, #influencer-cont {
     padding: 0%;
-    max-height: 450px;
   }
-  #fans h2, #influencer h2, #influencer-cont h2 {
+  #fans h2, #influencer-cont h2 {
     width: 100%;
-    max-width: 330px;
+    max-width: 50px;
     min-width: 250px;
   }
-  #fans p, #influencer p, #influencer-cont p {
-    width: 295px;
+  #fans p, #influencer-cont p {
+    width: 300px;
     font-size: 0.8em;
   }
 }
@@ -1032,7 +1060,7 @@ aside {
   }
   #features .illustration-container {
     position: absolute;
-    top: 170px;
+    bottom: -110px;
     right: 40px;
     display: flex;
     flex-direction: row;
@@ -1043,7 +1071,7 @@ aside {
   }
   #features .illustration-container .mobile-illustration {
     height: 100%;
-    max-height: 700px;
+    max-height: 750px;
     width: 100%;
     max-width: 470px;
     margin: 0px;
@@ -1133,8 +1161,8 @@ aside {
   #call-to-action div.container {
     width: 90%;
     max-width: 920px;
-    height: 50vh;
-    max-height: 600px;
+    min-width: 600;
+    height: 400px;
     z-index: 0;
     padding: 5%;
     overflow: hidden;

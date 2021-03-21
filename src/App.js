@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state={
       toggle:null,
       size:0,
+      scroll:null,
       slide:4,
       count:1,
     }
@@ -56,9 +57,40 @@ class App extends React.Component {
       };  
   }
 
- 
+  handleScroll=()=>{
+    window.onscroll =()=>{
+      this.setState({scroll:window.scrollY},
+        ()=>{
+          console.log("SCROLLLLL:::",this.state.scroll);
+        })
+    };
+  }
+
+  handleResize=()=>{
+    window.onresize =()=>{
+      this.setState({size:window.innerWidth});
+    };
+  }
+
+animate_images=()=>{
+
+  // if(this.state.scroll >= 72 && this.state.size>=762){
+  //   document.body.scrollTop = 272;
+  //   document.documentElement.scrollTop = 272;
+
+  //   return 'animate mobile-illustration';
+  // }
+  if(this.state.scroll>=277){
+  
+      return 'animate mobile-illustration';
+  }
+  return 'mobile-illustration';
+}
+
 
   componentDidMount(){
+    this.handleScroll();
+    this.handleResize();
     let widthOnLoad = window.innerWidth;
     this.setState({size:widthOnLoad},
       ()=>this.handleResize())  
@@ -81,7 +113,7 @@ class App extends React.Component {
             <a href="/" className="apple-store">download on the App Store</a>
           </div>
 
-          <span className="mobile-illustration"/>
+          <span className={this.animate_images()}/>
         
         </section>
         <section id="about">
@@ -93,8 +125,8 @@ class App extends React.Component {
               audience, Ear1 has got you covered.</p>
           </div>
         </section>
-          <Fans/>
-          <Influencer />
+          <Fans scroll={this.state.scroll}/>
+          <Influencer scroll={this.state.scroll}/>
           <Features />
           <CALL_TO_ACTION />
          </main>

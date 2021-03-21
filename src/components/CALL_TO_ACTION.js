@@ -2,9 +2,9 @@ function CALL_TO_ACTION(props){
     return(
         <>
         <section id="call-to-action">
-          <div className="illustration-container" aria-hidden="true">
+          {/* <div className="illustration-container" aria-hidden="true">
               <span className="mobile-illustration"/>
-            </div>
+            </div> */}
           <div className="container">
           <div className="illustration-container" aria-hidden="true">
               <span className="mobile-illustration"/>

@@ -1,10 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect,useCallback} from 'react';
 import {Pill, Icon} from '../components/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFunnelDollar} from '@fortawesome/free-solid-svg-icons';
 
+const scrollPosition = window.innerWidth;
+const animate=(scroll)=>{
+  if(scroll>=2058){
+      return 'animate';
+  }
+return null;
+}
+
 
 const Influencer=(props)=>{
+
+ 
+
+
+  // useEffect(()=>{
+  //   handleScroll()
+  // },[handleScroll])
     return(
         <>
         <section id="influencer">

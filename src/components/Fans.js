@@ -62,6 +62,7 @@ ${props => props.slide===4 && css`
 `
 const imageList = [_slide1, _slide2, _slide3, _slide4];
 
+
 const renderImages =() =>{
     return imageList.map((image,index)=>{
        return <Img key={`image${index}`} 
@@ -72,7 +73,17 @@ const renderImages =() =>{
                 />
     })
   }
-const Fans=()=>{
+
+
+const animate=(scroll)=>{
+  if(scroll>=2058){
+      return 'animate';
+  }
+return null;
+}
+
+
+const Fans=(props)=>{
  
 
   useEffect(()=>{
@@ -85,7 +96,7 @@ const Fans=()=>{
     return(
         <>
         <section id="connect">
-          <aside className="celeb-img-container">
+          <aside className='celeb-img-container'>
            {renderImages()}
          </aside>
 
@@ -122,15 +133,17 @@ const Fans=()=>{
                 <FontAwesomeIcon icon={faChevronLeft}/>
                  <p className="user">Chris Ekpengyong</p>
               </header>
+              <div className='chat-area'>
               <span className="right">
                 Hey Boss, I am Charles an upcoming producer and 
                 I make beats which I'd like you to hear
               </span>
               <span className="left">Hey, Nice to meet you</span>
               <span className="left">I'm not looking to hire a producer</span>
+              </div>
               <div className="bottom box" >
                 <div className="textBox">
-                  <span>Sorry, Another time</span>
+                  <span className={props.scroll>=2058?'animate':null}>Sorry, Another time</span>
                   <FontAwesomeIcon icon={faMicrophone} className="mic-icon"/>
                 </div>
               </div>

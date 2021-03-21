@@ -15,7 +15,7 @@ $orange2:#ff8c62;
 $dark-purple:#581845;
 $light-purple:#900C3F;
 $whitenoise:url(./assets/noise.svg);
-$noise:url(./assets/whitenoise.svg);//top left / 160% repeat;
+$noise:url(./assets/whitenoise.svg);
 
 %container{
     position: relative;
@@ -29,9 +29,8 @@ $noise:url(./assets/whitenoise.svg);//top left / 160% repeat;
    
 
     @media screen and (min-width:762px){
-        height:80vh;
+        height:100vh;
         min-height:500px;
-        max-height:600px;
         width:100%;
         padding:0%;
         overflow:hidden;
@@ -139,7 +138,6 @@ nav#topnav{
         position:absolute;
         display:block;
         top:2vh;
-        //left:80%;
         right:5%;
         width:40px;
         height:fit-content;
@@ -420,20 +418,35 @@ nav#topnav{
             height:100%;
             width:100%;
             }
-
         .mobile-illustration::before{
-            top:36%;
-            right:15vw;
-            transform:rotate(-24deg); 
+            top:40%;
+            left:-16vw;
+            transform:rotate(-26deg); 
             background: url(./assets/iphone.png)  top center / 90% no-repeat;
         }
         .mobile-illustration::after{
-            top:32%;
-            right:-15vw;
+            top:31%;
+            right:-17vw;
             background: url(./assets/settlements.svg)  top center / 90% no-repeat;
-            transform:rotate(22deg);
+            transform:rotate(23deg);
         }
-
+       
+        @keyframes rotate-left{
+            from{transform:rotate(-14deg)};
+            to{transform:rotate(-26deg)};
+        } 
+        @keyframes rotate-right{
+            from{transform:rotate(11deg)};
+            to{transform:rotate(23deg)};
+        }
+        
+        .animate.mobile-illustration::before{
+            animation:rotate-left 0.8s ease;
+        }
+        .animate.mobile-illustration::after{
+            animation:rotate-right 0.8s ease;
+        }
+        
         div.store-btns{
         max-width:600px;
        }  
@@ -488,13 +501,12 @@ nav#topnav{
     #about,#connect,#fans,
     #influencer,#influencer-cont,
     #features{
-        height:70vh;
-        max-height:600px;
+        height:100vh;
         min-height:400px;
 
         h2,h3{
         line-height:50px;
-        max-width:300px;
+        max-width:350px;
         text-align:left;
         
          }
@@ -621,10 +633,7 @@ nav#topnav{
     @include flex(row,space-between,center)
 }
 
-#fans{
-    height:400px;
-   
-}
+
 #fans::before{
     @extend %bg-layer;
     background:$green;
@@ -666,9 +675,10 @@ aside{
 @media screen and (min-width:762px){
     %user{
         position:relative;
-        font-size:12px;
+        font-size:0.8em;
         font-weight:bold;
-        margin-left:70px;
+        margin-left:22%;
+        width:78%;
     }
     aside{
         @include flex(row,center,center);
@@ -676,7 +686,8 @@ aside{
         padding:0% 5%;
 
         .container{
-            width:350px;
+            width:80%;
+            min-width:350px;
             height:102%;
         }
     }
@@ -692,7 +703,7 @@ aside{
         aside{
             position:relative;
             .container{
-                @include flex(column,space-evenly,center)
+                @include flex(column,space-between,center)
             }
         }
         aside::after,aside::before{
@@ -719,62 +730,63 @@ aside{
 
 
         .container{
-
             .box{
                 width:90%;
                 height:50px;
-                padding:2% 5%;
+                padding:3% 5%;
                 background:white;
                 @include flex(row,flex-start,center);
                
             }
 
-            .top.box{
-                margin-top:-10%;
-                padding-top:5%;
-            }
-            .bottom.box {
-                margin-bottom:-10%;
+            .box {
+               
+               padding-top:5%;
                 .mic-icon{
                     opacity:0.5;
                     margin-left:-5%;
                 }
             }
             .textBox{
+                position:relative;
                 width: 85%;
                 height:10px;
                 background:rgba(219, 219, 219, 0.185);
                 border-radius:5px;
                 border:1px solid transparent;
                 padding:10px;
-                @include flex(row,space-evenly,center);
+                @include flex(row,space-between,center);
             }
 
                 ////
 
-        .textBox span {
+        .textBox span{
             font-family:$dm;
-            font-size:12px;
+            font-size:0.8em;
             font-weight:500;
             color:black;
-            max-width:110px;
-            display:flex;
+            width:0;
             overflow: hidden;
             border-right: .15em solid black;
             white-space: nowrap;
-            margin: 0 auto;
-            margin-left:0;
+            margin: 0;
             animation:
-              typing 3.5s steps(40, end) infinite,
-              blink-caret .75s step-end infinite;
-          
+               // typing 3.5s steps(40, end) infinite,
+                blink-caret .75s step-end infinite;
             }
-          
+
+        .textBox span.animate{
+            width:120px;
+            max-width:120px;
+            animation:
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite ;
+        }
           
           /* The typing effect */
           @keyframes typing {
             from { width: 0 }
-            to { width: 100% }
+            to { width: 120px }
           }
           
           /* The typewriter cursor effect */
@@ -783,15 +795,20 @@ aside{
             50% { border-color: black; }
           }
         ////
+        .chat-area{
+            height:70%;
+            @include flex(column,flex-start,center);
+        }
 
             .left,.right{
                 position:relative;
                 max-width:60%;
-                font-size:12px;
+                font-size:0.8em;
                 background:white;
                 padding:4%;
                 font-weight:500;
                 border-radius:12px;
+                margin:5% 0;
             }
             .left{
                 align-self:flex-start;
@@ -810,8 +827,8 @@ aside{
     }
 
     #influencer{
-        
-        @include flex(row-reverse,space-between,center);
+        padding:0%;
+        @include flex(row-reverse,space-around,center);
         
         div.text-content{
             @include flex(column,flex-start,flex-start);
@@ -824,21 +841,24 @@ aside{
         }
         .illustration-container{
             width:50%;
-            padding:0%;
+            
+            margin:0;
             height:100%;
             overflow:hidden;
             position:relative;
             display:flex;
-            align-items:flex-start;
-            margin-left:-5%;
+            justify-content:center;
+            align-items:flex-end;
+            text-align:center;
+            
         }
         .mobile-illustration{
+            display:block;
             margin:0px auto;
-            width:100%;
-            max-width:400px;
-            height:100%;
-            max-height: 500px;
-            
+            min-width:465px;
+            max-width:480px;
+            min-height:500px;
+            margin-left:-50px;
             background: url(./assets/settlements.svg) bottom left / 100% no-repeat;
             
         }
@@ -895,7 +915,7 @@ aside{
             border-radius:35px;
             @include flex(row,center,flex-end);
         }
-        .inner-container{
+.container .inner-container{
             height:35%;
             width:350px;
             padding:10% 5%;
@@ -936,17 +956,16 @@ aside{
 }
 
 @media screen and (min-width:762px){
-    #fans,#influencer,#influencer-cont{
+    #fans,#influencer-cont{
         padding:0%;
-        max-height:450px;
         h2{
             width:100%;
-            max-width:330px;
+            max-width:50px;
             min-width:250px;
         }
 
         p{
-            width:295px;
+            width:300px;
             font-size:0.8em; 
         }
 
@@ -1030,7 +1049,7 @@ aside{
         }
         .illustration-container{ 
             position:absolute;
-            top:170px;
+            bottom:-110px;
             right:40px;
             @include flex(row,flex-start,center);
             height:85vh;
@@ -1038,7 +1057,9 @@ aside{
             }
             .illustration-container .mobile-illustration{
                 height:100%;
-                max-height:700px;
+                // //min-height:900px;
+                max-height:750px;
+                //height:750px;
                 width:100%;
                 max-width:470px;
                 margin:0px;
@@ -1127,8 +1148,8 @@ aside{
         div.container{
             width:90%;
             max-width:920px;
-            height:50vh;
-            max-height:600px;
+            min-width:600;
+            height:400px;
             z-index: 0;
             padding:5%;
             overflow:hidden;
