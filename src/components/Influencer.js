@@ -44,7 +44,7 @@ const Influencer=(props)=>{
         <section id="influencer-cont">
           <aside aria-hidden="true">
             <div className="container">
-              <div className="inner-container">
+              <div className={props.scroll >= 2540 ? "animate inner-container":"inner-container"}>
                 <p className="user">
                   Femi Adekunle<span> has paid and requested
                   for you</span>

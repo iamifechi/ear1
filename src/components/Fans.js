@@ -143,9 +143,10 @@ const Fans=(props)=>{
               </div>
               <div className="bottom box" >
                 <div className="textBox">
-                  <span className={props.scroll>=2058?'animate':null}>Sorry, Another time</span>
+                  <span className={props.scroll>=1728?'animate':null}>Sorry, Another time</span>
                   <FontAwesomeIcon icon={faMicrophone} className="mic-icon"/>
                 </div>
+                <FontAwesomeIcon icon={faPaperPlane} className="mic-icon"/>
               </div>
             </div>
           </aside>
