@@ -17,11 +17,8 @@ class App extends React.Component {
       toggle:null,
       size:0,
       scroll:null,
-      slide:4,
-      count:1,
     }
   }
-  timer;
 
   handleToggle=()=>{
     let width = window.innerWidth;
@@ -29,7 +26,7 @@ class App extends React.Component {
        this.setState({
         toggle:true
       },()=>{
-        console.log(":::::Toggle:::");
+        console.log(":::Toggle:::");
         document.body.style.overflow="hidden";
       })
     }
@@ -75,7 +72,10 @@ class App extends React.Component {
     this.handleResize();
     let widthOnLoad = window.innerWidth;
     this.setState({size:widthOnLoad},
-      ()=>this.handleResize())  
+      ()=>this.handleResize())  ;
+
+      console.log(`::: design by Felix Enyinaya (@p_h_i_l_i_x on twitter)
+       Coded by @iam_ifechi :::`)
   }
 
   render(){
@@ -95,7 +95,7 @@ class App extends React.Component {
             <a href="/" className="apple-store">download on the App Store</a>
           </div>
 
-          <span className={this.animate_images()}/>
+          <span className={this.state.scroll>=70?"animate mobile-illustration":"mobile-illustration"}/>
         
         </section>
         <section id="about">
