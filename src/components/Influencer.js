@@ -1,25 +1,10 @@
-import React, {useState, useEffect,useCallback} from 'react';
+import React, {/*useState, useEffect,useCallback*/} from 'react';
 import {Pill, Icon} from '../components/index'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFunnelDollar} from '@fortawesome/free-solid-svg-icons';
 
-const scrollPosition = window.innerWidth;
-const animate=(scroll)=>{
-  if(scroll>=2058){
-      return 'animate';
-  }
-return null;
-}
-
 
 const Influencer=(props)=>{
-
- 
-
-
-  // useEffect(()=>{
-  //   handleScroll()
-  // },[handleScroll])
     return(
         <>
         <section id="influencer">
@@ -42,9 +27,9 @@ const Influencer=(props)=>{
            </div>
         </section>
         <section id="influencer-cont">
-          <aside aria-hidden="true">
+          <div className="aside" aria-hidden="true">
             <div className="container">
-              <div className={props.scroll >= 2540 ? "animate inner-container":"inner-container"}>
+              <div className={props.scroll >= 3020? "animate inner-container":"inner-container"}>
                 <p className="user">
                   Femi Adekunle<span> has paid and requested
                   for you</span>
@@ -53,7 +38,7 @@ const Influencer=(props)=>{
                 <span className="right">Accept</span>
               </div>
             </div>
-          </aside>
+          </div>
           <div className="text-content">
             <div className="intro-container">
             <Pill secondary className="pill">influencer</Pill>

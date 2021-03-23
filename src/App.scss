@@ -20,7 +20,8 @@ $noise:url(./assets/whitenoise.svg);
 %container{
     position: relative;
     margin:0;
-    min-height:70vh;
+    height:100vh;
+    min-height:500px;
     width:80%;
     padding:10%;
     overflow:hidden;
@@ -29,11 +30,8 @@ $noise:url(./assets/whitenoise.svg);
    
 
     @media screen and (min-width:762px){
-        height:100vh;
-        min-height:500px;
         width:100%;
         padding:0%;
-        overflow:hidden;
     }  
 }
 %bg-layer{
@@ -544,7 +542,7 @@ nav#topnav{
 
 
 #about::after,#about::before,
-#fans aside::before,#fans aside:after{
+#fans .aside::before,#fans .aside:after{
     content:"";
     position:absolute;
     top:0;
@@ -555,7 +553,7 @@ nav#topnav{
     opacity:1;
     
 }
-#about::after,#fans aside::after{ 
+#about::after,#fans .aside::after{ 
     background: $noise;
     opacity:1;
 }
@@ -589,7 +587,7 @@ nav#topnav{
     padding:12% 10%;
     @include flex(column,space-evenly,center);
 
-    aside.celeb-img-container{
+    .aside.celeb-img-container{
         width:100%;
         height:280px;
         @include flex(row,center,center);
@@ -608,7 +606,7 @@ nav#topnav{
         padding:0% 5%;
         width:90%;
 
-        aside.celeb-img-container{
+        .aside.celeb-img-container{
          justify-content:flex-start;
         }
         div.text-content{
@@ -648,7 +646,7 @@ nav#topnav{
     background: $noise;
 }
 
-aside{
+.aside{
     width:40%;
     height:100%;
     padding:10% 5%;
@@ -685,7 +683,7 @@ aside{
         margin-left:22%;
         width:78%;
     }
-    aside{
+    .aside{
         @include flex(row,center,center);
         margin:0;
         padding:0% 5%;
@@ -705,13 +703,13 @@ aside{
             padding:12% 6%;
             
         }
-        aside{
+        .aside{
             position:relative;
             .container{
                 @include flex(column,space-between,center)
             }
         }
-        aside::after,aside::before{
+        .aside::after,.aside::before{
             content:"";
             position:absolute;
             top:0;
@@ -722,12 +720,12 @@ aside{
             opacity:1;
         }
 
-        aside::before{
+        .aside::before{
             background: rgb(228, 228, 228);
             z-index:-2;
         }
 
-        aside::after{
+        .aside::after{
             background: $noise;
         }
 
@@ -762,6 +760,9 @@ aside{
                 padding:10px;
                 @include flex(row,space-between,center);
             }
+            .paper-plane{
+                    margin:auto 8px;
+                }
 
                 ////
 
@@ -778,6 +779,8 @@ aside{
             animation:
                // typing 3.5s steps(40, end) infinite,
                 blink-caret .75s step-end infinite;
+            
+                
             }
 
         .textBox span.animate{
@@ -834,7 +837,7 @@ aside{
     #influencer{
         padding:0%;
         @include flex(row-reverse,space-around,center);
-        max-height:435px;
+        max-height:700px;
         div.text-content{
             @include flex(column,center,flex-start);
             width:40vw;
@@ -906,7 +909,7 @@ aside{
             }
             
         }
-        aside{
+        .aside{
             background:rgb(39,39,39);
             width:40%;
             padding:0% 5%;
@@ -1302,7 +1305,7 @@ aside{
         text-decoration:none;
         height:2em;
         width:100%;
-        margin-top:40%;
+        margin-top:5%;
         
     }
     
@@ -1410,6 +1413,9 @@ aside{
                 font-size:calc(2vmin + 7px);
             }
 
+        }
+        .logo{
+            margin-top:40%;
         }
 
         .socials{

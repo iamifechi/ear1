@@ -59,12 +59,8 @@ class App extends React.Component {
 
   handleScroll=()=>{
     window.onscroll =()=>{
-      this.setState({scroll:window.scrollY},
-        ()=>{
-          console.log("SCROLLLLL:::",this.state.scroll);
-        })
-    };
-  }
+      this.setState({scroll:window.scrollY});
+  }}
 
   handleResize=()=>{
     window.onresize =()=>{
@@ -72,20 +68,6 @@ class App extends React.Component {
     };
   }
 
-animate_images=()=>{
-
-  // if(this.state.scroll >= 72 && this.state.size>=762){
-  //   document.body.scrollTop = 272;
-  //   document.documentElement.scrollTop = 272;
-
-  //   return 'animate mobile-illustration';
-  // }
-  if(this.state.scroll>=277){
-  
-      return 'animate mobile-illustration';
-  }
-  return 'mobile-illustration';
-}
 
 
   componentDidMount(){

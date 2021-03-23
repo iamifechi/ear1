@@ -4,7 +4,8 @@
 #features, #call-to-action {
   position: relative;
   margin: 0;
-  min-height: 70vh;
+  height: 100vh;
+  min-height: 500px;
   width: 80%;
   padding: 10%;
   overflow: hidden;
@@ -18,11 +19,8 @@
   #about, #connect, #fans,
   #influencer, #influencer-cont,
   #features, #call-to-action {
-    height: 100vh;
-    min-height: 500px;
     width: 100%;
     padding: 0%;
-    overflow: hidden;
   }
 }
 
@@ -537,7 +535,7 @@ div.store-btns a:not(:hover) {
 }
 
 #about::after, #about::before,
-#fans aside::before, #fans aside:after {
+#fans .aside::before, #fans .aside:after {
   content: "";
   position: absolute;
   top: 0;
@@ -548,7 +546,7 @@ div.store-btns a:not(:hover) {
   opacity: 1;
 }
 
-#about::after, #fans aside::after {
+#about::after, #fans .aside::after {
   background: url(./assets/whitenoise.svg);
   opacity: 1;
 }
@@ -587,7 +585,7 @@ div.store-btns a:not(:hover) {
   align-items: center;
 }
 
-#connect aside.celeb-img-container {
+#connect .aside.celeb-img-container {
   width: 100%;
   height: 280px;
   display: flex;
@@ -614,7 +612,7 @@ div.store-btns a:not(:hover) {
     padding: 0% 5%;
     width: 90%;
   }
-  #connect aside.celeb-img-container {
+  #connect .aside.celeb-img-container {
     justify-content: flex-start;
   }
   #connect div.text-content {
@@ -650,7 +648,7 @@ div.store-btns a:not(:hover) {
   background: url(./assets/whitenoise.svg);
 }
 
-aside {
+.aside {
   width: 40%;
   height: 100%;
   padding: 10% 5%;
@@ -691,7 +689,7 @@ aside {
     margin-left: 22%;
     width: 78%;
   }
-  aside {
+  .aside {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -699,7 +697,7 @@ aside {
     margin: 0;
     padding: 0% 5%;
   }
-  aside .container {
+  .aside .container {
     width: 80%;
     min-width: 350px;
     height: 102%;
@@ -714,16 +712,16 @@ aside {
     width: 38%;
     padding: 12% 6%;
   }
-  #fans aside {
+  #fans .aside {
     position: relative;
   }
-  #fans aside .container {
+  #fans .aside .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
-  #fans aside::after, #fans aside::before {
+  #fans .aside::after, #fans .aside::before {
     content: "";
     position: absolute;
     top: 0;
@@ -733,11 +731,11 @@ aside {
     width: 100%;
     opacity: 1;
   }
-  #fans aside::before {
+  #fans .aside::before {
     background: #e4e4e4;
     z-index: -2;
   }
-  #fans aside::after {
+  #fans .aside::after {
     background: url(./assets/whitenoise.svg);
   }
   #fans .container {
@@ -773,6 +771,9 @@ aside {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+  #fans .container .paper-plane {
+    margin: auto 8px;
   }
   #fans .container .textBox span {
     font-family: "DM Sans", sans-serif;
@@ -841,7 +842,7 @@ aside {
     flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
-    max-height: 435px;
+    max-height: 700px;
   }
   #influencer div.text-content {
     display: flex;
@@ -915,7 +916,7 @@ aside {
   #influencer-cont div.text-content p {
     width: 295px;
   }
-  #influencer-cont aside {
+  #influencer-cont .aside {
     background: #272727;
     width: 40%;
     padding: 0% 5%;
@@ -1323,7 +1324,7 @@ aside {
   text-decoration: none;
   height: 2em;
   width: 100%;
-  margin-top: 40%;
+  margin-top: 5%;
 }
 
 #footer .logo::after {
@@ -1433,6 +1434,9 @@ aside {
   }
   #footer form h2 {
     font-size: calc(2vmin + 7px);
+  }
+  #footer .logo {
+    margin-top: 40%;
   }
   #footer .socials {
     position: absolute;
