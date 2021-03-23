@@ -982,6 +982,7 @@ div.store-btns a:not(:hover) {
   }
   #influencer-cont .container .animate.inner-container {
     animation: drop 1s ease-in-out;
+    animation-delay: 0.8s;
     bottom: 0;
   }
 }
